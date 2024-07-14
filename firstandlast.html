@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <titlFirst and Last names</title>
+</head>
+<body>
+    <form id="nameForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" required>
+        <br><br>
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" required>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+
+    <!-- The JavaScript code should be placed inside the <script> tag -->
+    <script>
+        document.getElementById("nameForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+
+            // Get the values from the form inputs
+            const firstName = document.getElementById("firstName").value;
+            const lastName = document.getElementById("lastName").value;
+
+            // Display the values in the output div
+            document.getElementById("output").innerText = `First Name: ${firstName}, Last Name: ${lastName}`;
+
+            // Log the values to the console
+            console.log("First Name:", firstName);
+            console.log("Last Name:", lastName);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window and Screen Resolution</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Window and Screen Resolution</h1>
+    <button onclick="displayResolutions()">Get Resolutions</button>
+
+    <div class="result">
+        <h2>Window Resolution</h2>
+        <p id="windowResolution"></p>
+    </div>
+    <div class="result">
+        <h2>Screen Resolution</h2>
+        <p id="screenResolution"></p>
+    </div>
+
+    <script>
+        function displayResolutions() {
+            // Get the width and height of the window (viewport)
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+
+            // Get the width and height of the screen
+            const screenWidth = screen.width;
+            const screenHeight = screen.height;
+
+            // Display the resolutions
+            document.getElementById("windowResolution").innerText = `Window Width: ${windowWidth} px, Window Height: ${windowHeight} px`;
+            document.getElementById("screenResolution").innerText = `Screen Width: ${screenWidth} px, Screen Height: ${screenHeight} px`;
+        }
+    </script>
+</body>
+</html>

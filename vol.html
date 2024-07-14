@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volume Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-section {
+            margin-bottom: 20px;
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+        input[type="text"] {
+            margin-bottom: 10px;
+            width: 150px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        #results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Volume Calculator</h1>
+
+    <div class="form-section">
+        <h2>Sphere</h2>
+        <label for="sphereRadius">Radius:</label>
+        <input type="text" id="sphereRadius" name="sphereRadius" required>
+        <button onclick="calculateSphereVolume()">Calculate Sphere Volume</button>
+    </div>
+
+    <div class="form-section">
+        <h2>Rectangle (Cuboid)</h2>
+        <label for="rectLength">Length:</label>
+        <input type="text" id="rectLength" name="rectLength" required>
+        <br>
+        <label for="rectWidth">Width:</label>
+        <input type="text" id="rectWidth" name="rectWidth" required>
+        <br>
+        <label for="rectHeight">Height:</label>
+        <input type="text" id="rectHeight" name="rectHeight" required>
+        <button onclick="calculateRectVolume()">Calculate Rectangle Volume</button>
+    </div>
+
+    <div class="form-section">
+        <h2>Square (Cube)</h2>
+        <label for="cubeSide">Side:</label>
+        <input type="text" id="cubeSide" name="cubeSide" required>
+        <button onclick="calculateCubeVolume()">Calculate Cube Volume</button>
+    </div>
+
+    <div id="results">
+        <h2>Results</h2>
+        <p id="sphereResult"></p>
+        <p id="rectResult"></p>
+        <p id="cubeResult"></p>
+    </div>
+
+    <script>
+        // Calculate the volume of a Sphere
+        function calculateSphereVolume() {
+            const radius = parseFloat(document.getElementById("sphereRadius").value);
+            if (isNaN(radius) || radius <= 0) {
+                alert("Please enter a valid positive number for the radius.");
+                return;
+            }
+            const volume = (4/3) * Math.PI * Math.pow(radius, 3);
+            document.getElementById("sphereResult").innerText = `Volume of the Sphere: ${volume.toFixed(2)}`;
+        }
+
+        // Calculate the volume of a Rectangle (Cuboid)
+        function calculateRectVolume() {
+            const length = parseFloat(document.getElementById("rectLength").value);
+            const width = parseFloat(document.getElementById("rectWidth").value);
+            const height = parseFloat(document.getElementById("rectHeight").value);
+            if (isNaN(length) || length <= 0 || isNaN(width) || width <= 0 || isNaN(height) || height <= 0) {
+                alert("Please enter valid positive numbers for length, width, and height.");
+                return;
+            }
+            const volume = length * width * height;
+            document.getElementById("rectResult").innerText = `Volume of the Rectangle: ${volume.toFixed(2)}`;
+        }
+
+        // Calculate the volume of a Cube
+        function calculateCubeVolume() {
+            const side = parseFloat(document.getElementById("cubeSide").value);
+            if (isNaN(side) || side <= 0) {
+                alert("Please enter a valid positive number for the side length.");
+                return;
+            }
+            const volume = Math.pow(side, 3);
+            document.getElementById("cubeResult").innerText = `Volume of the Cube: ${volume.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
